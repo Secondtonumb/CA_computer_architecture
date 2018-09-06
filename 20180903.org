@@ -1,0 +1,93 @@
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \setmainfont{PingFang SC}
+
+<<专题讨论>>
+
+* John.L.Hennessy & Patterson
+* AI芯片
+** tpu
+** 寒武纪
+* 龙芯
+* 神威
+* summit
+* RISC-V
+
+** 主题可以拓展 要老师审核
+** 10000字报告 + PPT
+** 两种汇报方式
+*** 课上 10-15分
+*** 课下 5分
+
+** 时间: 随堂进行/专题研讨课
+
+<<计算机食物链>>
+
+** 1969s Large mainframes 
+** 1970s minicomputers，supercomputers
+** 1980s desktop computer based on microprocessors
+** 1990s internet &severs
+** 2000s mainstream classes 
+*** pervasive/ubiquitous computing
+
+* SMP 
+
+* 频率墙
+工艺进入超深亚微米后, 线延时超过门延时
+* 功耗墙
+漏流增大功耗增大 芯片过热，稳定性下降，噪声大
+* 存储墙
+通信带宽， 延迟
+* 应用墙
+每一种处理器在各自的领域内都有着很高的性能，但是如果应用条件发生变换则会导致性能明显下降
+
+* Moore's Law : 2X transistors/ "year"
+
+** 集成电路芯片上所集成的电路的数目，每隔18个月翻一番。
+** 微处理器的性能每隔18个月提高一倍，价格下降一倍。
+
+IC(integrated circuit, 集成电路)
+
+4纳米 --> 可能是极限(电子漂移现象)
+
+功耗密度进一步恶化
+
+<<洗衣店问题>>
+-->流水线，并行处理
+
+*** latency --> 等待时间
+*** throughput --> 系统吞吐量
+*** 流水线受限于最慢的流水量
+*** 多任务同时执行
+*** potential speedup = Number pip stages
+*** Unbalanced lengths og pipe stages reduced speedup
+*** 
+<<程序员所能看到的计算机的属性>>
+*** 数据表示
+*** 寻址规则
+*** 寄存器定义
+*** 指令集 
+*** 中断系统
+*** 及其工作状态的定义和切换
+管态和目态
+*** 存储系统
+*** 信息保护
+*** I/O结构
+
+* 经典计算机体系结概念的实质
+计算机系统中软硬件界面的确定，上-->软件， 下-->硬件&固件
+* 计算机组成: 计算机体系结构的逻辑实现
+* 计算机实现: 计算机组成的物理实现
+一种体系结构可以有多种组成
+一种组成可以有多种物理实现
+
+
+computer architechture > ISA ???
+
+What is Computer Architecjture?
+
+Application (应用层) <---> Physics (物理层)
+
+使用各种可行性的制造工艺进行抽象层的设计，使得应用程序有效进行。
+
+两三周之后，开始
+

@@ -1,0 +1,133 @@
+* Abstraction Layers in Modern Systems
+抽象层的定义~
+*** Application
+*** Algorithm
+*** Programming Language
+*** OS/VM
+*** Instruction Set Architecture(ISA)
+*** Microarchitecture
+*** Gates/Register - Transfer Level -->汇编语言
+*** Circuits 逻辑电路
+*** Deviced 器件
+*** Physics 物理层(半导体等)
+
+Parellel
+Security 
+Reliability --> 可靠性
+Power -->
+* Computer Architecture's Changeing Definition 
+加减乘除-> 指令集结构->
+
+* CA is an Integrated Approach
+** What really matters is the functioning of the complete system
+** Hardware runtime system compiler operating system application
+** "End to End argument"
+
+Computer architecture is not just about transistor individual 
+instrctions or particular implementations
+
+* CA is Design and Analysis 
+Cost / Performace Analysis
+* Course Focus
+Parallelism 
+
+Blank wafers 硅圆片 蚀刻电路板
+
+Nvidia 14核->12核 
+
+规则的部分 Cache
+
+Clustered VLSI Defects
+
+<<Fundamentals of Computer Design>>
+
+* CHanges in 20 years
+Performance 
+** Advances 在成本和性能上超越了较老的工艺技术
+** COmputer architecture advances improves low-end 计算机体系结构的进步，改进了低端系统的性能
+*** RICS superscaler RAID
+
+** Prices
+*** 开发更简单
+*** Higher volumes
+** Functions
+
+
+Logic Capacity Speed 2x in 3years 
+DRAM Capacity 4x in 3-4 years  Speed 2x in 10 years
+
+** Gates per clock
+Gates per clock is how many gates in a pipeline may change state in a single
+
+Processor Performance 1.35X before 1.55X in90's
+
+** 80年代中期以前，技术驱动，电路技术
+** 伺候，得益于先进的系统结构思想，流水技术，乱序执行，超标量，多级cache
+
+SPEC benchmark
+
+* 限制微处理器设计，实现的严峻挑战不是制造能力而是功耗密度。
+* CrossRoads:Uniprocessor Performance 
+After 2002 slow down
+--> The End of the Uniprocessor Era
+Single Biggest change inthe history of computing systems
+
+** Power is free Transistor expensive
+** New  COnventional Wisdom "Power Wall" Canput more on chip than can afforf to turn on
+** Old CW 
+pipleining superscalar out-of order speculation VLIW(Very long instruction Work)
+条件分支预测
+** New CW "ILP wall " law of diminishing returns on more HW for ILP
+重新将关注度放回到硬件上
+指令集优化接近饱和
+** Old CW Multiplies are slow Memory acces is fast
+** New "Memory Wall"
+** Ols CW Uniprocessor performace 2X /1.5yrs
+** New CW 
+
+DLP important for conventional CPU too
+
+* TLP 线程级并行 2+cores / 2years
+* DLP 数据集并行 2x width  / 4 years
+
+DLP will account for more mainstream parallelism frowth than TLP in next decade
+No longer get faster, just wider 新的摩尔定律？
+主频难以改变，因而改变带宽。
+未来计算机不会越来越快，而是越来越宽。
+
+群核 + FPU + Icache + Dcache
+* Problems with sea change
+** Algorithms, PL, Compliers OS< Architectures <libraies not ready 
+--> Need a reworking of all the 
+
+*CHaracteristics of Ideal Academic CS Research Supercomputer
+** Scale:  >1000
+** Cheap:
+** CHeap to operate ,Small, Low Power --$ again
+** Community -share SW, training ,ideas
+** Simplifies debugging high SW churn Rate(离网率)
+** Reconfigurable(可定制性) : test many parameters imitate manys ISA s
+** credible
+** ?
+
+* RAMP Research Accelerator for Multiple Processors
+利用FPGA generation  every 1.5yrs
+
+http://www.openhw.org/
+Gateware: Processors ,Caches Coherency, Ethernet, Interfaces,Switches ,Routers 
+
+Berkeley's New Focus
+
+将原有的串行程序做成并行
+
+* GPU 与 CPU的差异
+
+** 面向计算密集型和大量数据并行化的计算
+** 大量的晶体管用于计算单元
+
+开发难度较小，增加功能比较容易。
+
+
+
+
+

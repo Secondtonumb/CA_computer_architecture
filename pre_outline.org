@@ -1,0 +1,33 @@
+<<AI芯片>>
+
+* 定义 乱
+** -> 归结现象到本质
+* 当下普及的 GPU运算 
+** 同样的函数，要执行成千上万次--> 激活函数 sigmoid,tanx...
+** CPU 只会做加法运算，所有的运算都是通过加法运算来直接模拟的...
+** 那就找到一个所谓的“AI芯片”，看他是否是将这个电路集成化了？--> TO DO --> NFU
+(他是如何为神经网络计算加速的？) --> 见论文Sec.5
+
+1、对大规模的CNNs和DNNs机器学习算法的综合硬件的设计； 
+2、在很小的芯片空间上高吞吐率和低功耗； 
+3、专注访存的性能，性能不受计算任务访存的区别。
+
+
+* nvidia 统治地位 GPU运算
+** BENCHMARK between CPU & GPU youtube
+* tpu
+** 有必要解释一下机器学习中的张量 Tensor
+** Google 开发 --> 应用
+* 寒武纪
+** “业界第一款支持本地训练的处理器
+** DianNao
+In this study, we design an accelerator for large-scale CNNs and DNNs, with a special emphasis on the impact of memory on accelerator design, performance and energy.
+比如针对神经网络计算任务中的某些高频操作，可以直接提供硬件指令集编码
+减少对AI算法性能影响不大的缓存（Cache）体系，提升芯片的性能功耗比等等
+就是把AI计算中的高层功能板块（比如卷积）分解成低层功能板块（比如点乘），让加速器更加灵活地支持不同类型的神经网络。
+accelerators focusing on other domains, such as image processing, also propose efficient implementations of some of the primitives used by machine- learning algorithms, such as convolutions.
+fficient implementation of computational primi- tives is a first and important step with promising results --> Should Be Considered firstly
+
+A synthesized (place & route) accelerator design for large-scale CNNs and DNNs, the state-of-the-art machine- learning algorithms.
+The accelerator achieves high throughput in a small area, power and energy footprint.
+The accelerator design focuses on memory behavior, and measurements are not circumscribed to computational tasks, they factor in the performance and energy impact of memory transfers.
