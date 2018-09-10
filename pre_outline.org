@@ -31,3 +31,6 @@ fficient implementation of computational primi- tives is a first and important s
 A synthesized (place & route) accelerator design for large-scale CNNs and DNNs, the state-of-the-art machine- learning algorithms.
 The accelerator achieves high throughput in a small area, power and energy footprint.
 The accelerator design focuses on memory behavior, and measurements are not circumscribed to computational tasks, they factor in the performance and energy impact of memory transfers.
+
+
+* Summit 架构

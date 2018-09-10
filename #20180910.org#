@@ -1,0 +1,93 @@
+** Crossroads Uniprocessor performances
+** New Trend of Computer Design
++ 利用 /linpack/ 程序进行基准测试
+***  在超级计算机中出现一个趋势 --> 协处理器
++ 用于个人计算机 工作站和游戏机专用图像显示设备
++ 发现 /显示/ 与 /计算/ 需要并行
+GPU来做浮点数大规模计算
+
+OPENGL -- 用于显卡编程 但是不能进行通用计算
+\
+ \->CUDA
+
+** APU 让CPU和GPU融为一体
+CPU 与 GPU 之间的难度在于接口
+/Accelerated Processing Units/
+
+** APU微架构由 
++ CPU
++ GPU
++ 北桥(不希望有，不希望通过北桥和总线)
++ 内存控制器
++ 输入输出控制器
+
+Inter's Many Core and Multi-core
+
+Inter 80-core TereScale Processor 
+** Xeoo Phi 
+更像是与CPU协同工作的GPU 
+
+** 神威太湖之光
+购买了版权: Alpha 神威 21264
+
+** Challenge 
+when we start talking about a prallelism and ease of use of truly parallel computers,
+we're talking about a problem that's as hard as any that computer science has faced.
+
+并行编程运行程度直接决定并行硬件的并行程度。
+
+* What Computer Architecture brings to table
++ Quantitative Principles of Design
++ Careful, quantitaive comparisons
++ Culture of anticipating and exploiting advances in technology
+** Taking Advantage of Parallelism
++ Increasing throughtput of server computer via multiple processors of multiple disks
+++ Carry lookahead adders (超前进位加法器)
+++ Multiple memory banks(多体内存)
++ Pipelining (流水线)
+Classis 5-stage pipeline(五级流水)
+
+** The principle of Localty(局部性原理)
++ The Principle of Localty
++ Levels of the memory Hierarchy
+
+** Focus on the common case 
++ 二八原则--关键少数原则
+++ overflow is rare when adding 2 numbers , 
+++ so improve performance by optimizing more common case of no overflow
+** Amdahl's Law 
+ 1. Fraction_enhanced
+ 增强比例: 计算机执行某个任务的总时间中可被改进的部分的时间所占的百分比
+ 2. Speedup_enhanced
+ 增强加速比: 改进部分采用改进措施后比没有采用改进措施前性能提高倍数
+ +++ 20s -> 15s  20/15 =1.33
+
+ Amdahl定律告诉我们: 系统中某一部件采用某种更快的执行方式后，整个系统性能的提高与这种执行方式的使用频率或占总执行时间的比例有关。
+
+
+
+
+
+
+
+
+
+
+** Processor performance equation
+CPU time = seconds / program 
+= instrctions / program  * Cycles /Instrction * Seconds /Cycle(和主频有关)
+CPI Cycles Per Instrction
+
+|              | Inst Count | CPI | Clock Rate |
+| Program      | X          |     |            |
+| Compiler     | X          | (X) |            |
+| Inst.set     | x          | X   |            |
+| Organization |            | X   | X          |
+| technology   |            |     | X          |
+
+* Instraction Set Architecture(ISA) Principles and Example
+指令系统原理与实例
+Each instrcution is directly executed by the CPU's hardware
+** How is it represented 
+
+** 

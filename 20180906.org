@@ -101,7 +101,7 @@ No longer get faster, just wider 新的摩尔定律？
 --> Need a reworking of all the 
 
 *CHaracteristics of Ideal Academic CS Research Supercomputer
-** Scale:  >1000
+** Scale: > 1000
 ** Cheap:
 ** CHeap to operate ,Small, Low Power --$ again
 ** Community -share SW, training ,ideas
@@ -109,7 +109,6 @@ No longer get faster, just wider 新的摩尔定律？
 ** Reconfigurable(可定制性) : test many parameters imitate manys ISA s
 ** credible
 ** ?
-
 * RAMP Research Accelerator for Multiple Processors
 利用FPGA generation  every 1.5yrs
 
