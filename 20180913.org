@@ -1,0 +1,36 @@
+* Instruction Set Architecture (ISA) Principles and Example
+(指令系统原理与实例)
+CPU_Time = IC * CPI * Cycle_time
+* Characteristics of Instruction Set
+** (堆栈型)栈类型存储 Stack
++ 在运算的时刻不一定从存储器中取来
+  + Push B
+  + Push A
+  + Add 
+  + Pop C
++ C = A + B
+** 累加器存储 Accumulator
+  + Load A
+  + Add B
+  + Store C
+** 寄存器-内存 Register-Memery (通用寄存器)
+  + Load R1, A
+  + Add R3, R1, B
+  + Store R3, C
+计算的同时要取数
+memory 影响计算速度
+** 寄存器-寄存器 (Load-Store) ---RISC 计算机典型架构 适合于流水线
+  + Load R1, A
+  + Load R2, B
+  + Add R3, R1, R2
+  + Store R3, C
++ 提前取数到rigister里面 只有Load，Store 访问 memory
+
+** general-Prupose Register(GPR)
+根据访存数
+** A load-store architecture survived 
++ Register are faster than memory 更快
++ Register are more effcient for a compiler to use 
+  + 考虑任意顺序执行
+  + 存放变量，减少数据流量，加速程序运行，提高代码密度
+

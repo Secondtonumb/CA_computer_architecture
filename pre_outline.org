@@ -34,3 +34,5 @@ The accelerator design focuses on memory behavior, and measurements are not circ
 
 
 * Summit 架构
+* 量子通信
+* 量子计算机
