@@ -75,3 +75,29 @@ which capture 75% ~ 99% of the displacements -- Common Case
   + Branch,jump, rocedure call and return ,trap
 + System
 All computer provide the above operations
+** Top 10 ins for the x86
++ load
++ conditional Branch
++ compare
++ store
++ add
++ and
++ sub
++ move register=register
++ call
++ return 
+占了全部的96%
+** Addressing Modes for Control Flow Instrcutions
++ PC-relative
+相对于当前PC值
+```
+Add(); // define
+.
+.
+.
+C = A + B;
+D = A + F;
+if(C == D) {
+   add(B, F);
+}
+```
