@@ -33,4 +33,45 @@ memory 影响计算速度
 + Register are more effcient for a compiler to use 
   + 考虑任意顺序执行
   + 存放变量，减少数据流量，加速程序运行，提高代码密度
+** Memory Addressing(cont.)
++ 小段存取
+低端对低端
+0x0304
+|   00 |   01 |
+| 0x04 | 0x03 |
+Inter 经常采用
++ 大端存取
 
+|   00 |   01 |
+| 0x03 | 0x04 |
+
++ 网络字节序 
+在网络上存储的，必须是 *大端对齐*
+
++ Endian Order is also Important to File Data
++ 内存对齐 
+地址不会出现奇数 (mod n = 0) n为偶数
+
+** 优先优化的部分--占得比重大
++ *Register indrrect*
++ *Immediate*
++ *Displacement*
+** Displacememt Addressing Mode
++ Whats an appropriate range of the displacements
+The size of address should be at least 12- 16 bits,
+which capture 75% ~ 99% of the displacements -- Common Case
+
++ expect 8-16 for immediate
+** Type and Size of Operands
++ Vertex 
+32bit
++ Pixel
+(R,G,B,A) Alpha通道 透明度
+8bit * 4
+** What operation are Needed
++ Arthemetic and Logical
++ Data Transfer
++ Control
+  + Branch,jump, rocedure call and return ,trap
++ System
+All computer provide the above operations
