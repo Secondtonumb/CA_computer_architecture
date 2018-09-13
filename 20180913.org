@@ -52,8 +52,8 @@ Inter 经常采用
 + 内存对齐 
 地址不会出现奇数 (mod n = 0) n为偶数
 
-** 优先优化的部分--占得比重大
-+ *Register indrrect*
+** 优先优化的部分--占的比重大
++ *Register indirect*
 + *Immediate*
 + *Displacement*
 ** Displacememt Addressing Mode
@@ -90,14 +90,77 @@ All computer provide the above operations
 ** Addressing Modes for Control Flow Instrcutions
 + PC-relative
 相对于当前PC值
-```
-Add(); // define
-.
-.
-.
-C = A + B;
-D = A + F;
-if(C == D) {
-   add(B, F);
-}
-```
++ A register contains the target address
++ The jump may permit any addressing mode to be used to supply the target address
+** Usage of Register Indirect Jumps
++ Case or switch statements
++ Virtual functionsor methods
++ Hight-order functions 
++ Dynamiccal libraries ? 
+一般跳转是 4 - 7 个指令
+** 过程调用中寄存器内容的两种保存策略
+
+* Encoding
+** Issues on Encoding and Instuction Set
++ Disire for lots of addressing modes and registers
++ Desire for smaller instruction size and program size with more addresing modes and registers
++ Disire to have instruction encoded into lengths 
+
++ 可变长编码
++ 定长编码
++ 混合编码
+
+* Role of Compilers
+** Compilers vs. ISA
++ Almost all programming is  done in high level language(HLL) for desktop and server applications
++ Most instructions executed are the output of a compiler
++ Separation from each other is impratical
+** Coals of Compiler
++ Correctness
++ Speed of the compiled code
+  + Fast compilation
+  + Debugging support
+  + Interoperability among languages(可理解为: 不同语言编制的不同组件之间的互操作性)
+** Structure of Recent Compilers
+Compilers typically consist of two to four passes ,with more highly optiizing compilers having more passes.
+Front end per language -> High-level optimizations -> Glabal optimizer -> code generator
+中间形式 -> 循环变换过程，内嵌集成 -> 全局优化，局部优化+寄存器分配 -> 指令选择机器相关优化
+
+** Optimization Types
++ Local optimizations
+  + DOne on basic sequential bloak(straight line code)
++ Global optimazations
+  
++ Register allocation 
+  + NP-complete
+  + Heuristic algorithm(启发式算法)
+** Major types of Optimizations and Example in Each Class
++ Local
++ Common subexpressiong elimination
++ Constant propagation
++ Stack height reduction
+** Change in Instruction Count Due to Compiler Optimization
+** Optimization Observations
++ Hard to reduce branches
++ Biggest reduction is often memory references
+
++ 在分支跳转等问题中，必须在运行的时候处理问题(静态处理很难)
+*分支预测*
+** MIPS64 
++ 32 64-bit integer GPRs
+  + R0, R1... R31, R0 == 0
++ 32 FPRs
+i.e. 
+
+| 0 | zero | constant 0             |
+| 1 | at   | reserved for assembler |
+| 2 | v0   | expression evaluation  |
+| 3 | v1   | ...                    |
+
+** MIPS Instruction Format 
+One instruction is 32 bits
+=> divide ins word into fields
++ I-format
++ R-format
++ J-format
+
