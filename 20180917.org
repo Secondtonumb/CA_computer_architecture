@@ -42,22 +42,64 @@ Time_Per_ins_on_Unpipelined_Machine / Number_of_Pipe_Stages
 *指令定长*
 *** Three CLasses of Ins of MIPS64
 Jumpes 会结束当前流水线~
-* A simple Implementation of A RISC Ins Set In a Pipeline Set
+** A simple Implementation of A RISC Ins Set In a Pipeline Set
 + 5 steps
-  + Instrction Fetch cycle(IF) cache -> IR
+  + Instrction Fetch cycle(IF) 
     + Fetch the current instruction from memory
-    +  Update PC -> PC + 4
+    + Update PC -> PC + 4
   + Ins Decode/register fetch cycle(ID) data cache 
     + Decpde the ins and read the registers corresponding to register source specifiers from the register file (fixed-field decoding 固定预编码)
     + 进行分支预判
     + 增加一个加法器
   + Execution / effective address cycle (EX)
   + Memory Access (MEM) --> load store 才去访问内存
-  + Write-Back cycle(WB)
+    + load: memory does a read
+    + read: memory does a write
++ Write-Back cycle(WB)
 + Every instrction takes at most 5 clock cycles
++ branch instructions require 2 / 4 cycles I/O运算的结果
++ store instruction require 4 cycles 不写回？
++ other ins needs 5
+cycles
+| number |  1 | 2  | 3  | 4   | 5   | 6   | 7   | 8   |  9 |
+| i      | IF | ID | EX | MEM | WB  |     |     |     |    |
+| i + 1  |    | IF | ID | EX  | MEM | WB  |     |     |    |
+| i + 2  |    |    | IF | ID  | EX  | MEM | WB  |     |    |
+| i + 3  |    |    |    | IF  | ID  | EX  | MEM | WB  |    |
+| i + 4  |    |    |    |     | IF  | ID  | EX  | MEM | WB |
++ 同一个时间寄存机读写？ 先写再读？
+ We need to peform two reads and one write every clock Cycle .TO handle reads and a write tothe same regitster, seperate it into half
+** Assumption and Observation
++ Data memory reference only occurs at stage 4
++ Register update only occurs at stage 5
+*PC问题*: PC + 4 必须在IF段完成，但是分支指令可能会改变PC值，而且还在MEM段记性，这会导致冲突。(和第i+3条的指令产生冲突)
+重新组织数据通路，把所有改变PC值得操作都放在IF段进行，在第i+3条指令的IF段来做，因为发生跳转，i+1,i+2,i+3全部作废。
+** Pipeline Registers / Latches between Successive Pipeline Stages
+每一个时钟周期都需要IR
+** Stall (Bubble) 流水线的暂停
++ Ins issued later than this instuction are stalled 后面的停止
++ Ins issued eariler than this ins must continue 前面的仍然执行
++ Structural Hazards 结构冲突
++ 某些功能部件没有充分流水 多个部件重复设置来解决
++ 某些资源没有充分重复设置 
+***  当前指令所需要的操作数还在流水线当中:
+*数据冲突*
++ Read After Write "Dependence" 真相关
++ Write after read "anti-dependence" 反相关 --> 乱序执行
+sub r4, r1, r3
+add r1, r2, r3
+只要操作数具备，就执行
++ Write after Write "outpute-dependence" 输出相关
++ *结构冲突*
++ *数据重读*
++ *指令冲突*
+** 解决办法 Forwarding(Bypassing or Short-circuiting) to Avoid Data Hazard 旁路(直接通路/短路)
++ But still data hazard even happenwith forwarding
+** How to Detect the Hazard
+从硬件检测，当硬件检测到前面的某条指令的结果寄存器就是当前指令的源寄存器时-->前递
+Dependence 是程序的属性,Hazard 是流水线的属性。
+Dependence(相关) 不一定存在 Hazard(冲突)
 
-
-
-
-
-
+** Softeare Scheduling to Avoid Load Hazards
++ 在编译阶段通过重排语序来减少(静态调度)
++ 进入CPU之后才叫做动态调度
