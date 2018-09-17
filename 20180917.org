@@ -1,0 +1,63 @@
+** MIPS Instrction Format
++ I-Type instruction (immediately)
+| opcode | rs | rt | immediately |
+  + rt <-re op immediate
+  + Conditional branches 
+    rs is the register checked
+    rt unused
++ R-type instruction (register)
+| opcode | rs | rt | rd | shamt | func |
+  + add, sub, shamt
++ J-type instruction (jump)
+| opcode | offset added to PC |
+* Pipelining: Basic and Intermediate Concepts 流水线基本原理
++ 流水线不能提高单个任务的执行时间，提高整体工作负载的吞吐量。
++ 流水线的速率受限于最慢的流水段
++ 多个不同人物同时操作，使用不同资源。
++ 潜在加速比 = 流水线的级数
+  + 流水段的执行时间不均衡，加速比会降低。
+** 流水线的基本概念与实现
++ 流水线技术：讲一个重复的时序过程分解成若干个子过程，而每个子过程都可以有效的在 *其专用功能段* 上与其他子过程同时执行。
++ 流水线中每个子过程及其功能部件成为流水线的段(级)， 段与段之间互相连接形成流水线。
++ 流水线的段数成为流水线的深度
++ not visible to programmers
++ 指令沿流水线移动一次的时间间隔就是一个时间周期(processor cycle)
+  + All the stages must be ready to proceed at the same time
+  + Slowest pip stage determines processor cycle
+  + Processor cycle is usually one clock cycle
+  + The piplline designaer's goal is to balance the length of each pipeline stage
+等待下一个时钟周期的脉冲
+** Benefits of Pipelining 
++ If the stages are perfectly balanced and everything is perfect, then the time per instruction on the pipelined machine is equal to
+Time_Per_ins_on_Unpipelined_Machine / Number_of_Pipe_Stages
+潜在加速比 = 流水线的级数(理想状态)
++ Completely hardware mechanism --> 纯粹的硬件机制
++ No programming model shift required to expliot this form of concurrency(并行性)
++ All modern machines are pipelined
+  + Key tech in advancing performance in th 80's
+  + In the 90's we just moved to multiple pipelines
++ Message Passing Interface(MPI)
++ OpenMP(Open Multi-Processing --> 隐式的创建线程
+*** The Basics of a RISC Instruction Set(MIPS64)
+*指令定长*
+*** Three CLasses of Ins of MIPS64
+Jumpes 会结束当前流水线~
+* A simple Implementation of A RISC Ins Set In a Pipeline Set
++ 5 steps
+  + Instrction Fetch cycle(IF) cache -> IR
+    + Fetch the current instruction from memory
+    +  Update PC -> PC + 4
+  + Ins Decode/register fetch cycle(ID) data cache 
+    + Decpde the ins and read the registers corresponding to register source specifiers from the register file (fixed-field decoding 固定预编码)
+    + 进行分支预判
+    + 增加一个加法器
+  + Execution / effective address cycle (EX)
+  + Memory Access (MEM) --> load store 才去访问内存
+  + Write-Back cycle(WB)
++ Every instrction takes at most 5 clock cycles
+
+
+
+
+
+

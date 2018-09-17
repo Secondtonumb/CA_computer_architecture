@@ -125,10 +125,10 @@ All computer provide the above operations
 Compilers typically consist of two to four passes ,with more highly optiizing compilers having more passes.
 Front end per language -> High-level optimizations -> Glabal optimizer -> code generator
 中间形式 -> 循环变换过程，内嵌集成 -> 全局优化，局部优化+寄存器分配 -> 指令选择机器相关优化
-
+多层语言结构
 ** Optimization Types
 + Local optimizations
-  + DOne on basic sequential bloak(straight line code)
+  + Done on basic sequential bloak(straight line code)
 + Global optimazations
   
 + Register allocation 

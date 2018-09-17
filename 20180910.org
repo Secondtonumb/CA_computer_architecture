@@ -65,14 +65,6 @@ Classis 5-stage pipeline(五级流水)
  Amdahl定律告诉我们: 系统中某一部件采用某种更快的执行方式后，整个系统性能的提高与这种执行方式的使用频率或占总执行时间的比例有关。
 
 
-
-
-
-
-
-
-
-
 ** Processor performance equation
 CPU time = seconds / program 
 = instrctions / program  * Cycles /Instrction * Seconds /Cycle(和主频有关)
