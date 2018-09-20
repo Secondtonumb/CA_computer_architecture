@@ -9,15 +9,15 @@ xor r10,r1, r11 ---> 分支转移成功，导致暂停三拍。
 ** Branch Stall Impact
 + If 30% branch , Stall 3 cycles significant ,will yield a performace loss of 50%(48%)
 + Two part solution 
-  ++ Determine branch taken or not sooner , AND
-  ++ COmpute taken branch address earlier
+  + Determine branch taken or not sooner , AND
+  + COmpute taken branch address earlier
 ** Four Branch Hazard Alternatives
 + Stall until branch directio is clear
 + Predict Branch Not Taken
-  ++ Execute successor instructions in sequence
-  ++ "Squash" Insturctions in pipeline oif branch actually taken
-  ++ Advantage of late pipeline state update(优点在于跳转失败时可以不改变状态)
-  ++ 47% MIPS branches not take 
+  + Execute successor instructions in sequence
+  + "Squash" Insturctions in pipeline oif branch actually taken
+  + Advantage of late pipeline state update(优点在于跳转失败时可以不改变状态)
+  + 47% MIPS branches not take 
 + Delayed Branch 分支延迟
   + 1 slot deley(*分支延迟槽*) allows proper decision and branch target address in 5 stage pipeline
   + MIPS use this
@@ -37,4 +37,8 @@ turned into a no-op
 + 最大吞吐率TP_{max}是指流水线在连续流动达到稳定状态后所得到的吞吐率
   + 若流水线各段的时间相等 \Delta t_{0} 则 TP_{max} = \frac{1}{\Delta t_{0}}
   
-
++ 若流水线各段时间相等 
+  + T_{流水} = m\Delta t_{0} + (n - 1)\Delta t_{0}
++ 若时间不相等
+  + T_{流水} = \Sum_{i = 1}^{m}\Delta t_{i} + (n - 1)\Delta t_{j} \Delta t_{j} = \max{\Delta t_{i}}
+  + 实际吞吐率 TP = \frac{n}{T_{流水}}
