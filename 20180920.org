@@ -35,10 +35,13 @@ turned into a no-op
 ** 流水线的性能指标--吞吐率TP(ThroughPut)
 + 单位时间内流水线完成的任务数量或输出结果的数量
 + 最大吞吐率TP_{max}是指流水线在连续流动达到稳定状态后所得到的吞吐率
-  + 若流水线各段的时间相等 \Delta t_{0} 则 TP_{max} = \frac{1}{\Delta t_{0}}
+  + 若流水线各段的时间相等 \Delta t_{0} 则 TP_{max} = 1/\Delta t_{0}
   
 + 若流水线各段时间相等 
   + T_{流水} = m\Delta t_{0} + (n - 1)\Delta t_{0}
 + 若时间不相等
-  + T_{流水} = \Sum_{i = 1}^{m}\Delta t_{i} + (n - 1)\Delta t_{j} \Delta t_{j} = \max{\Delta t_{i}}
-  + 实际吞吐率 TP = \frac{n}{T_{流水}}
+  + T_{流水} = \sum_{i = 1}^{m}\Delta t_{i} + (n - 1)\Delta t_{j} \Delta t_{j} = \max{\Delta t_{i}}
+  + 实际吞吐率 TP = n/T_{流水}
+** 性能指标--加速比
+S = T_{非流水}/T_{流水}
+S = nm\Delta t_{0} / m\Delta t_{0} + (n - 1)\Delta t_{0}
