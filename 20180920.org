@@ -46,4 +46,17 @@ turned into a no-op
 S = T_{非流水}/T_{流水}
 S = nm\Delta t_{0} / m\Delta t_{0} + (n - 1)\Delta t_{0}
 
+保证每个指令时是按照节拍来的--> 瓶颈段是按照节拍来的
+** 性能指标--效率
++ 有通过时间和排空时间，所以流水线的各段并不是一直满负荷工作 E < 1
++ 若各段时间相等，则各段的效率相等 e_{1} = e_{2} = ... = n\Delta t_{0} / T_{流水}
+整个流水线的效率 E = 1 / (1 + (m - 1) / n ) E --> 1
+(用长方形圈起来 和实际占用的空间的比)
+
+** Performance of Pipelines with Stalls
++ Example: Branch Stall Impact 
+  + Assume CPI = 1.0 ignore branches
+  + Assume solution was stalling for 3 cycles 
+有一点类似amdhal定律
+
 
