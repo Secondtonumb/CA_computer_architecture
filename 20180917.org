@@ -89,17 +89,17 @@ cycles
 sub r4, r1, r3
 add r1, r2, r3
 只要操作数具备，就执行
-+ Write after Write "outpute-dependence" 输出相关
++ Write after Write "outpute-dependence" 输出相关 --> 乱序执行
 + *结构冲突*
-+ *数据重读*
-+ *指令冲突*
++ *数据冲突* 
++ *控制冲突*
 ** 解决办法 Forwarding(Bypassing or Short-circuiting) to Avoid Data Hazard 旁路(直接通路/短路)
-+ But still data hazard even happenwith forwarding
+ + But still data hazard even happenwith forwarding
+ 直接在产生数据的位置，前递到需要使用的入口。
 ** How to Detect the Hazard
-从硬件检测，当硬件检测到前面的某条指令的结果寄存器就是当前指令的源寄存器时-->前递
+从硬件检测，当硬件检测到前面的某条指令的结果寄存器就是当前指令的源寄存器时--> 前递
 Dependence 是程序的属性,Hazard 是流水线的属性。
 Dependence(相关) 不一定存在 Hazard(冲突)
-
-** Softeare Scheduling to Avoid Load Hazards
+** Software Scheduling to Avoid Load Hazards 软件方法解决
 + 在编译阶段通过重排语序来减少(静态调度)
 + 进入CPU之后才叫做动态调度
