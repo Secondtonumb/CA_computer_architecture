@@ -44,4 +44,6 @@ turned into a no-op
   + 实际吞吐率 TP = n/T_{流水}
 ** 性能指标--加速比
 S = T_{非流水}/T_{流水}
-S = nm\Delta t_{0} / m\Delta t_{0} + (n - 1)\Delta t_{0}
+\[
+S = \frac{nm\Delta t_{0}}{ m\Delta t_{0} + (n - 1)\Delta t_{0}}
+\]
