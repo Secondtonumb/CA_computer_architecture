@@ -1,0 +1,62 @@
+* 指令级并行
++ ILP
++ Compiler tech to incrase ILP
++ Loop Unrolling
++ Static Brnach Prediction
++ Dynamic Brance Predicetion
++ Overcoming Data Hazards with Dynamic Scheduling
++ Scoreboard Algorithm
++ Tomasulo Algorithm
++ Spectulation
++ Specluative Tomasulo Example
++ Mamory Disambiguation
++ Exception
++ Superscalar 超标量
++ VLIW 超长指令字
+硬件拘束和软件金属互相配合，最大限度的挖掘出程序中存在的指令集并行
+
++ Pipeline CPI = Ideal pipeline CPI + Structural Stalls + Data Hazard Stalls + Control Stalls
+** Instrction-Level Parallelism (ILP): 
+overlap the execution of instrctions to improve performace
++ 动态调度 
++ 静态调度 
+** Basic Concepts of ILP
+可以挖掘指令级并行，程度低
+BB: 除了入口和出口外没有其他分支的线性指令序列
++ average dynamic branch frequency 15% to 25% 
++ To obtain substantial performance enhancements ,we must exploit ILP across multiple basic blocks
++ Simpleest: lopp-level parallelism to exploit parallellism 
+--> 循环展开
+在一个循环中*不同循环体*并行执行 x[i] = x[i] + s
+** Exploit loop-level paraallelism to parallelism by "unrolling loop" either by
++ dynamic via branch prediction or
++ static via loop unrolling by compiler 1000 -> 50 * 20
+** Data Dependence and Hazards 
++ HW/SW must preserve program order 保障程序执行顺序
+相关性是程序的特性，冲突是流水线结构的特性
++ 相关性决定可被开发的并行性的上界
++ HW/SW goal:
++ A example of iteration
+** Name Dependence 寄存器名字相关
++ Anti-dependence 先读后写
++ Output-dependence 寄存机换名来解决
+** Control Dependencies
++ 控制相关决定了指令执行的顺序
+
+if p1 {s1: };
+if p2 {s2' };
+
+指令控制相关于某分支，则不能移动到该分支前执行
+
++ *控制相关不是严格保持的关键属性*
++ 异常行为
+DASSU  R2, R3, R$
+BEQZ   R2, L1
+LW     R1, 0(R2)
+
+--> 保护错误
+不能改表exception出现的顺序
++ 数据流
+
+
+
