@@ -1,0 +1,64 @@
+相关有可能引起潜在的冲突
+** Loop Unrolling 循环展开
+扩大基本块的长度
+|-------------+-------------------+-------------------|
+| Instruction | instructio        | latency in cycles |
+|-------------+-------------------+-------------------|
+| FP ALP op   | Another FP ALP op |                 3 |
+| FP ALU op   | Store double      |                 2 |
+| Load double | FP　ALU op        |                 1 |
+| Load double | Store double      |                 0 |
+| integer op  | integer op        |                 1 |
+|-------------+-------------------+-------------------|
+
+Loop: 
+L.D F0, 0(R1)
+stall
+ADD.D F4, F0 F2 
+stall
+stall
+S.D 0(R1), F4
+DADDUI R1, R1, -8
+stall
+BNEZ R1, Loop
+通过调整语序进行一定的优化？ 减少stall
+
+Loop: 
+L.D F0, 0(R1)
+DADDUI R1,R1, -8
+ADD.D F4, F0 F2 
+stall
+stall
+S.D 0(R1), F4
+BNEZ R1, Loop
+
++ 基本块中可以挖掘指令级并行，但优化很小
+*** 静态分支预测 Static Branch Prediction
+- Average misprediction - untaken branch frequency = 34% SPEC
+/profile/ 从之前的分支跳转的结果保存起来进行参考
+前で１使った実行結果を一回ファイルに保存し将来の選択実行する際参照として使う。
++ Q: Is dynamic branch prediction better than stxtic branch prediction
++ A: Seems to be
++ Preformance = f(accuracy, cost of mispredicvtion)
++ The simplest synamic branch-prediction  scheme is a /branch=prediction buffer分支历史表/
+Index table of 1-bit values
+|  Index | Values(1-bit) |
+| 0x0036 | T             |
+| 0x0048 | F             |
+只记录上一次执行的情况， online update?
++ Say whether or not branch taken last time
++ Problem: in a loop , i-bit BHT will cause two misprediction 
+  + End tof loop case , when it exits instead of looping as before 最后一次预测错误不可避免，U因为前面总是分支成功
+  + First time through loop on next time through code, when it predicts exit instead of looping 第一次预测错误值源于上次程序的执行，是因为上一次程序的最后一期分支不成功
++ Solution 2-bit scheme where change prediction only if get misprediction *twice*
+/饱和计数器？/
+
+
+
+
+
+
+
+
+
+
