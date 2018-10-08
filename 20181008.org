@@ -52,13 +52,9 @@ Index table of 1-bit values
   + First time through loop on next time through code, when it predicts exit instead of looping 第一次预测错误值源于上次程序的执行，是因为上一次程序的最后一期分支不成功
 + Solution 2-bit scheme where change prediction only if get misprediction *twice*
 /饱和计数器？/
+*** 相关分支预测 Correlated Branches
++ Branch Target Buffers
+  + 分支目标缓冲
 
-
-
-
-
-
-
-
-
-
+** Dynamic Schedule
+和底层硬件相关
