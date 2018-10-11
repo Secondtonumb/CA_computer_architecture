@@ -1,0 +1,27 @@
+** Scoreboard Algorithm(计分板算法)
+/CPI/ cycles per instruction
+*** Centrailized control
+Issue -> Read Operands -> Execution -> Write result
+
+*** Parts to the Scoreboard
++ Instruction status
++ Functional Unit status: 9 fields
+
+指令多发
+CPI -> IPC
+前瞻执行
+** Tomasulo Algorithm
++ For IBM 360/91 (before cashes)
+  => Long memory latecy
++ Goal: High Performace without special compilers
++ 限制了编译器调度的有效性
+
++ Results to FU from RS, not through registers, over Common Data Bus that broadcasts results to all PUs
+  + Avoids RAWhazards by executing an instrction only when its operands are available
++  Load and Sotre treated as FUs with RSs as well
++ Interger instrctions can go past branches allowing FP ops beyond basic block in FP queue
+** Reservation Station Components
+*** Three Stages of Tomasulo Algorithm
++ Issue
++ Execute
++ Write result
