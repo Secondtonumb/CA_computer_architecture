@@ -1,0 +1,40 @@
+* limits to ILP and Simultaneous Multithreading
+** 单核处理器到多核处理器
++ Conservative in ideas, just faster clock and bigger Cache
++ Precessors of last 5 years have the same basic structture and similar sustained issue rates as the 1st dynamically scheduled, multiple-issue processors announced in 1995
+  + Clocks 10 to 20x faster, caches 4 to 8x bigger
+* Thread Level Parallelism 指令级并行
+
+** Window Size
++ The set of instructions that is examined for simultaneous execution is called the window
+
+|                      | New Model                 | Model    | Power 5            |
+| Ins issued per clock | 64                        | infinate | 4                  |
+| Ins Window size      | 2048                      | infinate | 200                |
+| Renaming Register    | 256 int + 256 flp         | infinate | 48 integer + 40 FI |
+| Branche prediction   | 8k 2-level                | ...      | ...                |
+| Cache                | ...                       | ...      | ...                |
+| Memory Alias         | Prefect HW disambiguation |          |                    |
+
++ There can be much higher natural parallelism in some applications
+  + Explicit Thread Level Parallelism or Data Level Parallelism
++ 线程是CPU中可以调度的最小单位，多个线程共享所属进程的空间，线程之间进行数据交换很快，创建进程也快
+所有CPU内部都有向量处理单元
+*** fine grained multithreading 
++ 轮转调度
+  + 能够隐藏由任何或长或短的阻塞带来的吞吐率的损失
+  + 减慢了每个进程的执行 
+*** coarse grained multithreading
+当处理器发现一个线程被长时间中断时，如Cache miss，这时处理器就切换到其他线程去执行。
++ Doesn't slow down thread , since instructions from othe threads issued only when the thread encounteras costly stall
++ 不能有效的减少吞吐率的损失
+  + 必须排空或者暂停
+*** For most apps, most execution units lie dile
++ functional units are often idle
+多线程: 两个线程之间是天生无关的，说明是可以并行的
+Do Both ILP and TLP
+
+
+
+
+

@@ -1,0 +1,7 @@
+** Superscalar 超标量
++ Vector Processing
++ Superscalar
+varying no.instruction per cycle
++ Long Instruction
+多发射的优势、每个时钟周期进行的指令数大于1
+** 超长指令字
