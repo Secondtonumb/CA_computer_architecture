@@ -34,7 +34,9 @@
 多线程: 两个线程之间是天生无关的，说明是可以并行的
 Do Both ILP and TLP
 
+同时多线程技术是一种在多流出，动态调度处理器上 *同时开发线程级并行和指令集并行的* 的改进的多线程技术
 
+** 局部性原理
 
-
+** How is a block found ig it is in the upper level Block address = tag + index
 

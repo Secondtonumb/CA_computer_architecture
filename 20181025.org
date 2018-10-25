@@ -1,0 +1,68 @@
+As a college student 
+** What happens on a write
+|                                            | WriteThrough 写直达                                             | Write-back 写回                                                                     |
+| Policy                                     | Data written to cache block  also written to lower-level memroy | Wirte data onlu to the cache Update lower level when a block falls out of the cache |
+| Debug                                      | Easy                                                            | Hard                                                                                |
+| Do read misses procude writes              | no                                                              | yes                                                                                 |
+| Do repreated writes make ir to lewer level | Yes                                                             | No                                                                                  |
+| Adventage                                  | Easier to implement                                             | ...                                                                                 |
+** Wirte allocate and Np-write allocate 
++ Write allocate(fetch on write) 按写分配(写时取)
+  + 写失效时，先把所写单元所在的块调入Cache, 再行写入
++ 不按写分配
+** Write Policy Choice 
++ Cache hit
++ Cache miss
+** Wirte BUffers for Write-Through Caches
++ Holds data awaiting write-through to lower level memory
+  + Q: Why write buffer 
+  + A: CPU doesn't stall
+  + Q: Why a buffer not one register 
+  + A: Bursts of writes are common
+  + Q: Are Read After Write hazards an isue for write buffer 
+  + A: Yes Brain buffer before next read.
+** CPU-Cache Intereation(交互)
+五级流水的第四级memory--> cache
+** Cache Measures 
+两次访问
++ Hit rate: fraction found in that level
+  + So high that usually talk about Miss rate
+  + Miss rate fallacy: as MIPS to CPU performance 
++ *Average memory-access time = Hit time + Miss rate * Miss pentalty(ns or clocks)*
++ Miss penalty 
+  + access time
+  + transfer time
+** Basic Cache Optimizations
++ Reducing Miss Rate
+  + 1. Larger Block size 但是Block不能太大
+    + reduce compulsory misses
+    + Larger blocks take advantages of spatial locality.
+  + 2. Larger Cache size
+    + reduce capacity misses
+    + higher cost and power
+  + 3. Higher Associativity
+    + greater associativity can come ate the cost of increased hit time
++ Reducing Miss Penalty
+  + 4. Multilevel Caches
+    + Adding Another level of cache betwwen the original cache and memory simplifies the decision
+    + Ther first level cache can be small enough 
+  + 5. Giving Reads Priotiy over wirtes
++ Reducing hit time
+  + 6. Avoid address translation hen indexing the cache
++ No optimization in this figure helps more than one category
+** What caouse a Miss
++ Compulsory 
+  + 冷启动失效
+  + 首次访问失效
++ Capacity
++ Conflict
+
++ for the read miss to wait until the write buffer is empty
+
+* I/O system
++ I/O Buses 
++ Disk Storage
++ RAID
++ Storage Systems
++ IO performance
+
