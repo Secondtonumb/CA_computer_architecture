@@ -1,0 +1,53 @@
++ DIsk Storage 
++ RAID
++ Storage Systems
++ IO Performance
+随着容量越来越大，对每个扇区而言访问越来越难
+
+** Disk Service Time
++ Time taken by a disk to complete an I/O request is sum of 
+  + Seek Tiem
+  + Rotational Latency
+  + Data Transfer Rate
+** Use Arrays of Small Disks
+Conventianal 4 disk designs
+*MTTF -> 平均无故障时间*
+
++ 系统可靠性 Mean Time to Failure
++ 系统可用性
+MTTF / ( MTTF +  MTTR ) (Mean Time To Repair) -> 指数据恢复
++ MTTF + MTT
++ R = MTBF(Mean Time Between Failure)
++ 系统可信性
+
+** Redundant Arrays of (Inexpensive) Disks 廉价磁盘冗余阵列
++ Contents reconstructed from data redundantly stored in the array
+  + Capacity penalty to store redundant info
+** RAID 0 严格说不属于RAID系列  
+因为不存在冗余 -> 无法恢复
+** RAID 1 Disk Mirroring/ Shadowing
++ Each disk i sfully duplicate onto its mirror 
+  100 reduntant
+** RAID 2 位交叉式hamming 编码阵列
+没有商业化产品
+** RAID Bit-interleaved Parity Disk 位交叉奇偶校验盘阵列
++ 单盘容错并行传输
++ 保护组中有N个数据盘的冗余代价为1/N(冗余盘和数据盘之比)
+** RAID 4
+works well for small reads
+** RAID 5 High I/O Rate Interleaved Parity
++ 块交叉分布式奇偶校验盘阵列
++ 阵列卡方式
+** SCSI Addressing
++ Compariosn ID/ATA vs SCSI
+* Multiprocessing 多处理
+(parallel computer architecture)
+
+** 计算机系统的分类
++ 个人计算机 
++ 工作站
++ 小型机
++ 中型机
++ 小巨型机
++ 巨型机
+Flynn 分类法， 冯氏分类法， handler分类法
