@@ -1,0 +1,32 @@
+* Lecture 9 Multiprocessing
++ parallel computer architecture
+  + other factors => multiprocessors
+  + 并不是一个很新的技术，由于各种各样的原因没有流行起来
+  + Flynn分类法
+    + SISD ->data level parelleism
+    + SIMD ->
+    + MISD -> precess level paralleism
+    + MIMD
+** Why Vector Processors
++ A single vector instrction specifies a great deal of work - it is equivalent to executing an entire loop
++ The computation of each result for one element in the vector is indpendent of he computation of other
++ Two primary types of architextures for vactor processors:
++ vector-register
++ Vector Memory-Meory vs. Vector Register Machines
++ Vector memory-memory architecturs(VMMA) require grater main memory bandwidth
+  + All operand must be read in and out of memory
++ -> ignore vector memory-memory method
+** The basic structure of a vector-register architecture 
+** Multimedia Extensions aka SIMD extensions
++ Automatic Code Vectorization
+将循环体转换成向量？
+
+Vector Stride 跨距
+
+
+
+** The Flynn-Johnson classification of computer systems
+
+| GMSV | GMMP |
+| DMSV | DMMP |
+
