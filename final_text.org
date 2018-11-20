@@ -1,0 +1,10 @@
+** Chapter 1 Introduction
+*** Class of Computers 
+*** Moore's Law  
+背下来
+*** What is Computer Architecture 
+阿姆达尔定义
+  + classical definition 概念性结构和功能特性
+  + broadest defination 抽象层设计
+  + 计算机系统机构与计算机组成，实现的关系
+
